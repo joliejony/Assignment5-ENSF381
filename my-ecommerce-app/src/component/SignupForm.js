@@ -1,15 +1,16 @@
+// SignupForm.js
+
 import React, { useState } from 'react';
-import LoginForm from './LoginForm'; // Import the LoginForm component
 
 function SignupForm() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [email, setEmail] = useState('');
-  const [showLogin, setShowLogin] = useState(false);
 
   const handleSignup = (e) => {
     e.preventDefault();
+    // Validate form fields
     if (username.trim() === '' || password.trim() === '' || confirmPassword.trim() === '' || email.trim() === '') {
       alert('Please fill in all fields');
       return;
@@ -22,9 +23,7 @@ function SignupForm() {
     console.log('Signed up with username:', username, 'password:', password, 'email:', email);
   };
 
-  const toggleLogin = () => {
-    setShowLogin(!showLogin);
-  };
+ 
 
   return (
     <div>
@@ -70,12 +69,9 @@ function SignupForm() {
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
-        <button type="submit">Submit</button>
-        <button type="button" onClick={toggleLogin}>
-          Switch to Login
-        </button>
+        <button type="submit">Signup</button>
+       
       </form>
-      {showLogin && <LoginForm />} {/* Render LoginForm if showLogin is true */}
     </div>
   );
 }

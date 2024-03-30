@@ -13,5 +13,5 @@ Commands for these libraries:
 - npm install react-router-dom
 - npm install bootstrap
 - npm install axios@latest
-- npm install styled-components
+- npm install axios@latest
 - npm install react
