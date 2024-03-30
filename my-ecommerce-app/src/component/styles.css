@@ -1,0 +1,38 @@
+/* Styles for the company name */
+.company-name {
+    position: absolute; /* Position the company name */
+    top: 0px; /* Align it to the top */
+    right: 3px; /* Move it 3px from the right */
+    margin-left: 5px; /* Add 5px left margin */
+}
+
+/* Styles for the navigation links */
+.links {
+    display: flex; /* Display the links as a flex container */
+    list-style-type: none; /* Remove the default list styling */
+    margin: 0; /* Reset margin */
+    padding: 0; /* Reset padding */
+    justify-content: space-between; /* Distribute space evenly between links */
+    margin-top: 20px; /* Add margin on top */
+}
+
+.links a {
+    padding: 0 5px; /* Add padding around the links */
+}
+
+/* Styles for various elements like logo, about-us section, customer reviews, and footer */
+.logo, .about-us, .customer-reviews, .footer {
+    margin-left: 5px; /* Add left margin */
+}
+
+/* Styles for the shopping cart */
+.cart {
+    position: absolute; /* Position the cart */
+    right: 110px; /* Move it 110px from the right */
+    margin-left: 5px; /* Add left margin */
+}
+
+/* Styles for product items and cart items */
+.product-item, .cart-item {
+    line-height: 0.5em; /* Set line height for items */
+}
