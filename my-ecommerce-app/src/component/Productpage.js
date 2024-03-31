@@ -3,6 +3,8 @@ import Header from './Header'; // Importing Header component
 import ProductList from './ProductList'; // Importing ProductList component
 import Cart from './Cart'; // Importing Cart component
 import Footer from './Footer'; // Importing Footer component
+import LoginForm from './LoginForm'; // Importing LoginForm component
+import SignupForm from './SignupForm'; // Importing SignupForm component
 import './styles.css'; // Importing CSS file for styling
 
 const Productpage = () => {
@@ -36,19 +38,40 @@ const Productpage = () => {
         setCart(updatedCart);
     };
 
-    // Render the Productpage component
+    const [isLoggedIn, setIsLoggedIn] = useState(false); // State to manage authentication status
+    const [showLoginForm, setShowLoginForm] = useState(true); // State to manage which form to display (login or signup)
+
+    // Function to handle successful login
+    const handleLoginSuccess = () => {
+        setIsLoggedIn(true);
+    };
+
+    // Function to switch between login and signup forms
+    const toggleForm = () => {
+        setShowLoginForm(!showLoginForm);
+    };
+
     return (
         <div className="product-page">
-            <Header /> {/* Render the Header component */}
-            <table>
-                <tr>
-                    <td><ProductList addToCart={addToCart} /></td> {/* Render the ProductList component and pass addToCart function as prop */}
-                    <td style={{verticalAlign: 'top'}}><Cart cart={cart} removeFromCart={removeFromCart} /></td> {/* Render the Cart component and pass cart and removeFromCart function as props */}
-                </tr>
-            </table>
-            <Footer /> {/* Render the Footer component */}
+            <Header />
+            {isLoggedIn ? (
+                <div>
+                    <table>
+                        <tr>
+                            <td><ProductList addToCart={addToCart} /></td>
+                            <td style={{verticalAlign: 'top'}}><Cart cart={cart} removeFromCart={removeFromCart} /></td>
+                        </tr>
+                    </table>
+                    <Footer />
+                </div>
+            ) : (
+                <div>
+                    {showLoginForm ? <LoginForm onLoginSuccess={handleLoginSuccess} /> : <SignupForm />}
+                    <button onClick={toggleForm}>{showLoginForm ? 'Switch to Signup' : 'Switch to Login'}</button>
+                </div>
+            )}
         </div>
     );
 };
 
-export default Productpage; // Export the Productpage component as the default export
+export default Productpage;
